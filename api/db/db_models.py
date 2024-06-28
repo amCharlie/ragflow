@@ -669,6 +669,11 @@ class Document(DataBaseModel):
         help_text="is it validate(0: wasted，1: validate)",
         default="1")
 
+    # Document Add Three Columns：category, tags, abstract
+    category = CharField(max_length=256, null=True, help_text="file type")
+    tags = CharField(max_length=512, null=True, index=True, help_text="key words of the file")
+    abstract = TextField(null=True, default="")
+
     class Meta:
         db_table = "document"
 

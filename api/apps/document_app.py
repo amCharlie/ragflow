@@ -48,6 +48,8 @@ from api.utils.web_utils import html2pdf, is_valid_url
 @validate_request("kb_id")
 def upload():
     kb_id = request.form.get("kb_id")
+    # category
+    category = request.form.get("category")
     if not kb_id:
         return get_json_result(
             data=False, retmsg='Lack of "KB ID"', retcode=RetCode.ARGUMENT_ERROR)
@@ -101,7 +103,8 @@ def upload():
                 "name": filename,
                 "location": location,
                 "size": len(blob),
-                "thumbnail": thumbnail(filename, blob)
+                "thumbnail": thumbnail(filename, blob),
+                "category": category
             }
             if doc["type"] == FileType.VISUAL:
                 doc["parser_id"] = ParserType.PICTURE.value
@@ -123,6 +126,7 @@ def upload():
 @validate_request("kb_id", "name", "url")
 def web_crawl():
     kb_id = request.form.get("kb_id")
+    category = request.form.get("category")
     if not kb_id:
         return get_json_result(
             data=False, retmsg='Lack of "KB ID"', retcode=RetCode.ARGUMENT_ERROR)
@@ -167,7 +171,8 @@ def web_crawl():
             "name": filename,
             "location": location,
             "size": len(blob),
-            "thumbnail": thumbnail(filename, blob)
+            "thumbnail": thumbnail(filename, blob),
+            "category": category
         }
         if doc["type"] == FileType.VISUAL:
             doc["parser_id"] = ParserType.PICTURE.value
@@ -186,6 +191,7 @@ def web_crawl():
 def create():
     req = request.json
     kb_id = req["kb_id"]
+    category = req["category"]
     if not kb_id:
         return get_json_result(
             data=False, retmsg='Lack of "KB ID"', retcode=RetCode.ARGUMENT_ERROR)
@@ -209,7 +215,8 @@ def create():
             "type": FileType.VIRTUAL,
             "name": req["name"],
             "location": "",
-            "size": 0
+            "size": 0,
+            "category": category
         })
         return get_json_result(data=doc.to_json())
     except Exception as e:

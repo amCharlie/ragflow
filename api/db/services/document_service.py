@@ -43,10 +43,16 @@ class DocumentService(CommonService):
     def get_by_kb_id(cls, kb_id, page_number, items_per_page,
                      orderby, desc, keywords):
         if keywords:
-            docs = cls.model.select().where(
-                (cls.model.kb_id == kb_id),
-                (fn.LOWER(cls.model.name).contains(keywords.lower()))
+            condition = (cls.model.kb_id == kb_id)
+            fiter = (
+                fn.LOWER(cls.model.name).contains(keywords.lower()) |
+                fn.LOWER(cls.model.tags).contains(keywords.lower())
             )
+            docs = cls.model.select().where(condition & fiter)
+            # docs = cls.model.select().where(
+            #     (cls.model.kb_id == kb_id),
+            #     (fn.LOWER(cls.model.name).contains(keywords.lower()))
+            # )
         else:
             docs = cls.model.select().where(cls.model.kb_id == kb_id)
         count = docs.count()
