@@ -1,7 +1,7 @@
 import { useLogin, useRegister } from '@/hooks/loginHooks';
 import { useOneNamespaceEffectsLoading } from '@/hooks/storeHooks';
 import { rsaPsw } from '@/utils';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon, useNavigate } from 'umi';
@@ -120,12 +120,24 @@ const Login = () => {
                 onPressEnter={onCheck}
               />
             </Form.Item>
-            {title === 'login' && (
-              <Form.Item name="remember" valuePropName="checked">
-                <Checkbox> {t('rememberMe')}</Checkbox>
-              </Form.Item>
-            )}
-
+            <div>
+              {title === 'login' && (
+                <div>
+                  {t('signInTip')}
+                  <Button type="link" onClick={changeTitle}>
+                    {t('signUp')}
+                  </Button>
+                </div>
+              )}
+              {title === 'register' && (
+                <div>
+                  {t('signUpTip')}
+                  <Button type="link" onClick={changeTitle}>
+                    {t('login')}
+                  </Button>
+                </div>
+              )}
+            </div>
             <Button
               type="primary"
               block
