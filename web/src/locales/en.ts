@@ -43,13 +43,13 @@ export default {
       nicknamePlaceholder: 'Please input nickname',
       register: 'Create an account',
       continue: 'Continue',
-      title: 'Start building your smart assistants.',
+      title: 'Strategic Information Database',
       description:
-        'Sign up for free to explore top RAG technology. Create knowledge bases and AIs to empower your business.',
+        'Create strategic information databases to explore cutting-edge strategic information technology, and empower your business.',
       review: 'from 500+ reviews',
     },
     header: {
-      knowledgeBase: 'Knowledge Base',
+      knowledgeBase: 'FiLe Management',
       chat: 'Chat',
       register: 'Register',
       signin: 'Sign in',
@@ -57,6 +57,7 @@ export default {
       setting: '用户设置',
       logout: '登出',
       fileManager: 'File Management',
+      fileExplorer: 'File Explorer',
     },
     knowledgeList: {
       welcome: 'Welcome back',
@@ -68,7 +69,7 @@ export default {
       searchKnowledgePlaceholder: 'Search',
     },
     knowledgeDetails: {
-      dataset: 'Dataset',
+      dataset: 'Files',
       testing: 'Retrieval testing',
       files: 'files',
       configuration: 'Configuration',

@@ -43,13 +43,12 @@ export default {
       nicknamePlaceholder: '请输入名称',
       register: '创建账户',
       continue: '继续',
-      title: '开始构建您的智能助手',
-      description:
-        '免费注册以探索顶级 RAG 技术。 创建知识库和人工智能来增强您的业务',
+      title: '战略信息数据库',
+      description: '创建战略信息数据库，探索顶尖的战略信息技术，赋能您的业务。',
       review: '来自 500 多条评论',
     },
     header: {
-      knowledgeBase: '知识库',
+      knowledgeBase: '文件管理',
       chat: '聊天',
       register: '注册',
       signin: '登录',
@@ -57,6 +56,7 @@ export default {
       setting: '用户设置',
       logout: '登出',
       fileManager: '文件管理',
+      fileExplorer: '文件检索',
     },
     knowledgeList: {
       welcome: '欢迎回来',
@@ -68,7 +68,7 @@ export default {
       searchKnowledgePlaceholder: '搜索',
     },
     knowledgeDetails: {
-      dataset: '数据集',
+      dataset: '文件',
       testing: '检索测试',
       configuration: '配置',
       files: '文件',

@@ -24,7 +24,6 @@ const App: React.FC = () => {
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
             overflow: 'auto',
-            display: 'flex',
           }}
         >
           <Outlet />

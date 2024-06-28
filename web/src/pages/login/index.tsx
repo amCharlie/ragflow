@@ -45,7 +45,7 @@ const Login = () => {
           password: rsaPassWord,
         });
         if (retcode === 0) {
-          navigate('/knowledge');
+          navigate('/fileExplorer');
         }
       } else {
         const retcode = await register({
@@ -125,24 +125,7 @@ const Login = () => {
                 <Checkbox> {t('rememberMe')}</Checkbox>
               </Form.Item>
             )}
-            <div>
-              {title === 'login' && (
-                <div>
-                  {t('signInTip')}
-                  <Button type="link" onClick={changeTitle}>
-                    {t('signUp')}
-                  </Button>
-                </div>
-              )}
-              {title === 'register' && (
-                <div>
-                  {t('signUpTip')}
-                  <Button type="link" onClick={changeTitle}>
-                    {t('login')}
-                  </Button>
-                </div>
-              )}
-            </div>
+
             <Button
               type="primary"
               block
