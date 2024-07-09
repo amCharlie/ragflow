@@ -216,6 +216,9 @@ const model: DvaModel<KFModelState> = {
       fileList.forEach((file: any) => {
         formData.append('file', file);
       });
+      console.log(22222)
+      console.log('knowledge file category:', payload.category);
+      formData.append('category', payload.category)
 
       const { data } = yield call(kbService.document_upload, formData);
 

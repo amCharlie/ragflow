@@ -67,6 +67,7 @@ const FileUploadModal = ({
   const [value, setValue] = useState<string | number>('local');
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [directoryFileList, setDirectoryFileList] = useState<UploadFile[]>([]);
+  const category = '测试0709';
 
   const clearFileList = () => {
     setFileList([]);
@@ -74,7 +75,7 @@ const FileUploadModal = ({
   };
 
   const onOk = async () => {
-    const ret = await onFileUploadOk?.([...fileList, ...directoryFileList]);
+    const ret = await onFileUploadOk?.([...fileList, ...directoryFileList], category);
     return ret;
   };
 

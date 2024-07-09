@@ -257,9 +257,11 @@ export const useHandleUploadDocument = () => {
   const uploadDocument = useUploadDocument();
 
   const onDocumentUploadOk = useCallback(
-    async (fileList: UploadFile[]): Promise<number | undefined> => {
+    async (fileList: UploadFile[], category: string): Promise<number | undefined> => {
+      console.log(4444)
+      console.log('knowledge file hooks category', category)
       if (fileList.length > 0) {
-        const ret: any = await uploadDocument(fileList);
+        const ret: any = await uploadDocument(fileList, category);
         const count = getUnSupportedFilesCount(ret.retmsg);
         /// 500 error code indicates that some file types are not supported
         let retcode = ret.retcode;
