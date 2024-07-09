@@ -15,7 +15,7 @@ const routes = [
     layout: false,
     wrappers: ['@/wrappers/auth'],
     routes: [
-      { path: '/', redirect: '/knowledge' },
+      { path: '/', redirect: '/fileExplorer' },
       {
         path: '/knowledge',
         component: '@/pages/knowledge',
@@ -56,6 +56,10 @@ const routes = [
       {
         path: '/chat',
         component: '@/pages/chat',
+      },
+      {
+        path: '/fileExplorer',
+        component: '@/pages/file-explorer',
       },
       {
         path: '/user-setting',

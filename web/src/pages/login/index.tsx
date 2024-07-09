@@ -1,7 +1,7 @@
 import { useLogin, useRegister } from '@/hooks/loginHooks';
 import { useOneNamespaceEffectsLoading } from '@/hooks/storeHooks';
 import { rsaPsw } from '@/utils';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon, useNavigate } from 'umi';
@@ -45,7 +45,7 @@ const Login = () => {
           password: rsaPassWord,
         });
         if (retcode === 0) {
-          navigate('/knowledge');
+          navigate('/fileExplorer');
         }
       } else {
         const retcode = await register({
@@ -120,11 +120,6 @@ const Login = () => {
                 onPressEnter={onCheck}
               />
             </Form.Item>
-            {title === 'login' && (
-              <Form.Item name="remember" valuePropName="checked">
-                <Checkbox> {t('rememberMe')}</Checkbox>
-              </Form.Item>
-            )}
             <div>
               {title === 'login' && (
                 <div>
